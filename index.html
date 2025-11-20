@@ -46,22 +46,19 @@
       to  { transform: translateY(120vh); }
     }
     
-    /* НОВИЙ СТИЛЬ: Робимо YouTube плеєр повністю невидимим */
+    /* ЦЕЙ СТИЛЬ РОБИТЬ ПЛЕЄР ПОВНІСТЮ НЕВИДИМИМ */
     #youtubePlayer {
-        /* Приховує елемент, але залишає його доступним для JS */
+        /* Приховує елемент, доки не буде натиснута кнопка "Так" */
         display: none; 
         /* Робить його мінімальним за розміром */
         width: 1px;
         height: 1px;
-        /* Розміщує його десь поза екраном, щоб він точно не заважав */
+        /* Розміщує його поза екраном, щоб він не заважав */
         position: fixed;
         left: -9999px;
         top: -9999px;
-        /* Переконаємось, що він не має жодного відступу чи рамки */
-        margin: 0;
-        padding: 0;
-        border: none;
-        opacity: 0; /* Додатковий рівень приховування */
+        /* Додаткове приховування */
+        opacity: 0; 
     }
   </style>
 </head>
@@ -112,7 +109,7 @@ document.getElementById("yes").onclick = () => {
   document.getElementById("question").innerText = "Дякую, я тебе дуже сильно люблю ❤️";
   document.getElementById("cat").style.display = "block";
   
-  // Робимо плеєр видимим (хоча він прихований CSS), що ініціює автозапуск
+  // КЛЮЧОВИЙ КРОК: Робимо невидимий плеєр доступним, що запускає музику
   youtubePlayer.style.display = "block";
   
   setInterval(createHeart,120);
